@@ -1,0 +1,15 @@
+/.expo
+/.git
+/.husky
+/.idea
+/.vscode
+android
+assets
+firebase
+ios
+node_modules
+# don't lint build output (make sure it's set to your correct build folder name)
+build
+.env
+.gitignore
+yarn.lock
