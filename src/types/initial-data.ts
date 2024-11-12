@@ -2,16 +2,16 @@ import { SmallOpponent } from './shared-types'
 
 const initialOpponent: SmallOpponent = {
   about:
-    'Seorang yang berasal dari keluarga menengah. Punya kemauan untuk belajar hal baru, dan memperbaiki diri. Insyaallah baik dan jujur. Menginginkan partner yang bisa diajak tumbuh bersama dan saling menerima kelebihan dan kekurangan masing-masing.',
+    'Saya berasal dari keluarga menengah yang sederhana. Memiliki keinginan untuk terus belajar dan memperbaiki diri. Insyaallah pribadi yang sabar dan berusaha menjadi orang yang baik. Mengharapkan pasangan yang bisa diajak tumbuh bersama dan saling menerima kelebihan serta kekurangan masing-masing.',
   address: 'Jl. Laksda Adisucipto No.16, Gajahmungkur, Semarang',
   age: 25,
   city: 'Semarang',
-  code: 'AGC642',
+  code: 'CSA642',
   criteria:
-    'Saya mencari pasangan yang sederhana dan memiliki pemahaman agama yang cukup, tetapi juga mampu bersikap fleksibel dalam keseharian. Seseorang yang saling mendukung dalam menghadapi kesulitan hidup, baik dari sisi ekonomi maupun keluarga, dan memiliki rasa hormat terhadap orang tua.',
+    'Saya mencari pasangan yang sederhana namun memiliki pemahaman agama yang baik, dan mampu bersikap fleksibel dalam keseharian. Seseorang yang tetap bisa membimbing dalam suka dan duka, baik dari sisi ekonomi maupun dukungan keluarga, serta memiliki rasa hormat terhadap orang tua dan lingkungan sekitar.',
   gender: 'Wanita',
-  height: 173,
-  image: 'https://picsum.photos/id/237/200/300',
+  height: 165,
+  image: 'https://picsum.photos/id/238/200/300',
   job: 'Guru Sekolah Dasar (SD)',
   name: 'Jane Doe',
   question1:
@@ -21,11 +21,39 @@ const initialOpponent: SmallOpponent = {
   question3:
     'Bagaimana Anda memprioritaskan keluarga besar dalam kehidupan pernikahan, dan sejauh mana keterlibatan mereka dalam urusan keluarga inti kita nanti?',
   status: 'Lajang',
-  superiority: 'Jujur, Sabar, Mudah Paham',
+  superiority: 'Jujur, Sabar, Cepat Paham',
   vision:
-    'Saya ingin menikah untuk berbagi suka dan duka dalam kehidupan sehari-hari, membangun keluarga yang sederhana dan penuh kebahagiaan. Menjalani kehidupan berumah tangga yang saling menguatkan, terutama dalam menghadapi tantangan ekonomi dan mendidik anak-anak agar memiliki iman dan karakter yang baik.',
-  weakness: 'Mudah Panik, Anxiety',
-  weight: 63,
+    'Saya ingin menikah untuk berbagi suka dan duka dalam kehidupan sehari-hari, membangun keluarga yang sederhana namun bahagia. Menjalani rumah tangga yang saling mendukung, terutama dalam menghadapi tantangan ekonomi dan membimbing anak-anak untuk memiliki iman serta karakter yang baik.',
+  weakness: 'Mudah Panik, Cemas Berlebihan',
+  weight: 58,
+}
+
+const initialUser: SmallOpponent = {
+  about:
+    'Pria yang berasal dari keluarga sederhana, punya semangat untuk selalu belajar dan memperbaiki diri. Insyaallah bertanggung jawab dan berusaha menjadi pribadi yang baik. Menginginkan pasangan yang bisa diajak tumbuh bersama dan saling menghargai kelebihan serta kekurangan masing-masing.',
+  address: 'Jl. Diponegoro No.20, Tembalang, Semarang',
+  age: 27,
+  city: 'Semarang',
+  code: 'GPR215',
+  criteria:
+    'Saya mencari pasangan yang tulus dan memiliki nilai-nilai keagamaan yang baik, namun tetap terbuka dan fleksibel dalam menjalani kehidupan sehari-hari. Seseorang yang mampu berjuang bersama dalam menghadapi tantangan hidup, termasuk dalam hal ekonomi dan keluarga besar, serta memiliki rasa hormat kepada orang tua.',
+  gender: 'Pria',
+  height: 178,
+  image: 'https://picsum.photos/id/12/200/300',
+  job: 'Pemadam Kebakaran (Damkar)',
+  name: 'John Doe',
+  question1:
+    'Apa saja nilai utama yang ingin kamu bangun bersama dalam keluarga kita nantinya, dan bagaimana cara kita bisa menjaga keseimbangan peran di rumah tangga?',
+  question2:
+    'Bagaimana pandanganmu tentang prioritas karir dan keluarga dalam kehidupan berumah tangga?',
+  question3:
+    'Menurut kamu, apa arti menjadi seorang istri yang baik, dan bagaimana kita bisa saling mendukung peran masing-masing dalam keluarga?',
+  status: 'Lajang',
+  superiority: 'Tegas, Mudah Beradaptasi, Rajin',
+  vision:
+    'Saya ingin menikah untuk saling mendukung dalam berbagai aspek kehidupan, membangun keluarga yang harmonis dan berlandaskan nilai-nilai agama. Berharap bisa menjalani rumah tangga yang stabil dan saling mendukung terutama dalam mendidik anak-anak agar menjadi pribadi yang baik dan berakhlak mulia.',
+  weakness: 'Terkadang Kurang Sabar, Kadang Cenderung Terlalu Fokus pada Pekerjaan',
+  weight: 72,
 }
 
 const getRandomNumber = (range: number) => {
@@ -48,4 +76,4 @@ const getRandomCode = () => {
   return `${result}${getRandomNumber(1000)}`
 }
 
-export { getRandomCode, getRandomImage, getRandomNumber, initialOpponent }
+export { getRandomCode, getRandomImage, getRandomNumber, initialOpponent, initialUser }
