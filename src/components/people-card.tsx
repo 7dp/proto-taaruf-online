@@ -1,3 +1,4 @@
+import { useNavigation } from '@/hooks'
 import { Colors, commonStyles, typography, windowWidth } from '@/styles'
 import { SmallOpponent } from '@/types'
 import { Image } from 'expo-image'
@@ -13,8 +14,15 @@ type Props = {
 
 function PeopleCard(props: Props) {
   const { image, code, age, city } = props.item
+
+  const navigation = useNavigation()
+
+  const onPress = () => {
+    navigation.navigate('Cv', { opponent: props.item })
+  }
+
   return (
-    <TouchableOpacity style={style.root}>
+    <TouchableOpacity style={style.root} onPress={onPress}>
       <Image source={image} style={style.image} />
       {/* Layer above image */}
       <View style={style.layerAbove}>

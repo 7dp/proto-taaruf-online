@@ -39,6 +39,11 @@ const commonStyles = StyleSheet.create({
     justifyContent: 'center',
   } as ViewStyle,
 
+  columnCenterH: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  } as ViewStyle,
+
   columnCenterV: {
     flexDirection: 'column',
     justifyContent: 'center',

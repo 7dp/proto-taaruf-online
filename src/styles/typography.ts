@@ -39,8 +39,8 @@ const typography = StyleSheet.create({
 
   heading3: {
     color: Colors.black82,
-    fontSize: 17,
-    lineHeight: getLineHeightFor(17),
+    fontSize: 16,
+    lineHeight: getLineHeightFor(16),
   } as TextStyle,
 
   heading4: {

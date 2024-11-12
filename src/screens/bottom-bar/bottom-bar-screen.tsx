@@ -1,3 +1,4 @@
+import { Screen } from '@/types'
 import React from 'react'
 import { createNativeBottomTabNavigator } from 'react-native-bottom-tabs/react-navigation'
 import { FindScreen } from '../find'
@@ -7,7 +8,7 @@ import { SentScreen } from '../sent'
 
 const Tabs = createNativeBottomTabNavigator()
 
-const BottomBarScreen = () => {
+const BottomBarScreen: Screen<'BottomBar'> = () => {
   return (
     <Tabs.Navigator>
       <Tabs.Screen

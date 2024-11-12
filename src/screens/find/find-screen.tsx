@@ -1,7 +1,7 @@
 import { PeopleCard } from '@/components'
 import { getRandomCode, getRandomImage, initialOpponent, SmallOpponent } from '@/types'
 import React from 'react'
-import { FlatList, ListRenderItemInfo, StyleSheet, View } from 'react-native'
+import { FlatList, ListRenderItemInfo, SafeAreaView, StyleSheet } from 'react-native'
 
 const data: SmallOpponent[] = Array.from({ length: 100 }, () => ({
   ...initialOpponent,
@@ -15,7 +15,7 @@ const FindScreen = () => {
   }
 
   return (
-    <View style={style.root}>
+    <SafeAreaView style={style.root}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -24,7 +24,7 @@ const FindScreen = () => {
         numColumns={2}
         columnWrapperStyle={style.columWrapper}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 

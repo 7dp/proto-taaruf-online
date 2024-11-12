@@ -2,11 +2,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
 
-import { BottomBarScreen } from '@/screens'
-import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
+import { BottomBarScreen, CvScreen } from '@/screens'
+import { ScreenParams } from '@/types'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<ScreenParams>()
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
                 component={BottomBarScreen}
                 options={{ headerTitle: 'Taaruf Online' }}
               />
+              <Stack.Screen name="Cv" component={CvScreen} options={{ headerTitle: 'CV' }} />
             </Stack.Navigator>
           </NavigationContainer>
         </KeyboardProvider>
