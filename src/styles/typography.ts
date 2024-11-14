@@ -26,45 +26,45 @@ const typography = StyleSheet.create({
   heading1: {
     color: Colors.black82,
     fontSize: 24,
-    lineHeight: getLineHeightFor(24),
+    // lineHeight: getLineHeightFor(24),
     fontWeight: '700',
   } as TextStyle,
 
   heading2: {
     color: Colors.black82,
     fontSize: 20,
-    lineHeight: getLineHeightFor(20),
+    // lineHeight: getLineHeightFor(20),
     fontWeight: '700',
   } as TextStyle,
 
   heading3: {
     color: Colors.black82,
     fontSize: 16,
-    lineHeight: getLineHeightFor(16),
+    // lineHeight: getLineHeightFor(16),
   } as TextStyle,
 
   heading4: {
     color: Colors.black82,
     fontSize: 14,
-    lineHeight: getLineHeightFor(14),
+    // lineHeight: getLineHeightFor(14),
   } as TextStyle,
 
   heading5: {
     color: Colors.black82,
     fontSize: 12,
-    lineHeight: getLineHeightFor(12),
+    // lineHeight: getLineHeightFor(12),
   } as TextStyle,
 
   heading6: {
     color: Colors.black82,
     fontSize: 10,
-    lineHeight: getLineHeightFor(10),
+    // lineHeight: getLineHeightFor(10),
   } as TextStyle,
 
   labelField: {
     color: Colors.black50,
     fontSize: 14,
-    lineHeight: getLineHeightFor(14),
+    // lineHeight: getLineHeightFor(14),
   },
 
   lowEmphasize: {
@@ -74,7 +74,7 @@ const typography = StyleSheet.create({
   placeholder: {
     color: Colors.black34,
     fontSize: 14,
-    lineHeight: getLineHeightFor(14),
+    // lineHeight: getLineHeightFor(14),
   } as TextStyle,
 
   semibold: {

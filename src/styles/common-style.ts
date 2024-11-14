@@ -54,6 +54,7 @@ const commonStyles = StyleSheet.create({
     borderColor: Colors.black15,
     borderLeftWidth: StyleSheet.hairlineWidth,
     borderRightWidth: StyleSheet.hairlineWidth,
+    borderTopColor: Colors.black25,
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
     borderTopWidth: StyleSheet.hairlineWidth,
@@ -91,6 +92,16 @@ const commonStyles = StyleSheet.create({
   helperTextError: {
     ...typography.heading5,
     ...typography.error,
+  },
+
+  multilineInput: {
+    borderColor: Colors.black65,
+    borderRadius: 6,
+    borderWidth: StyleSheet.hairlineWidth,
+    height: 17 * 4 + 18,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    textAlignVertical: 'top',
   },
 
   multilineTextInput: {

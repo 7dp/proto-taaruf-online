@@ -11,7 +11,7 @@ const data: SmallOpponent[] = Array.from({ length: 7 }, () => ({
 
 const ReceivedScreen = () => {
   const renderItem = ({ item }: ListRenderItemInfo<SmallOpponent>) => {
-    return <PeopleCard item={item} />
+    return <PeopleCard item={item} openedFrom="received" />
   }
 
   return (

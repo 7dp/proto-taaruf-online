@@ -10,9 +10,16 @@ type SmallOpponent = {
   image: string
   job: string
   name: string
-  question1: string
-  question2: string
-  question3: string
+  question: {
+    first: string
+    second: string
+    third: string
+  }
+  answer: {
+    first: string
+    second: string
+    third: string
+  }
   status: 'Menikah' | 'Lajang' | 'Duda' | 'Janda'
   superiority: string
   vision: string

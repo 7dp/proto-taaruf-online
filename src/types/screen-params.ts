@@ -4,7 +4,7 @@ import { SmallOpponent } from './shared-types'
 
 type ScreenParams = {
   BottomBar: undefined
-  Cv: { opponent: SmallOpponent }
+  Cv: { opponent: SmallOpponent; openedFrom?: 'sent' | 'received' }
 }
 
 type Screen<T extends keyof ScreenParams> = FC<NativeStackScreenProps<ScreenParams, T>>

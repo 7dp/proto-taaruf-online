@@ -1,5 +1,36 @@
 import { SmallOpponent } from './shared-types'
 
+const opponentQuestion = Object.freeze({
+  first: 'Seperti apa pandanganmu tentang peran saling mendukung dalam rumah tangga?',
+  second: 'Bagaimana kamu melihat peran komunikasi dalam menyelesaikan masalah keluarga?',
+  third: 'Seberapa penting menurutmu menjaga hubungan baik dengan keluarga besar?',
+})
+const userAnswer = Object.freeze({
+  first:
+    'Menurut saya, saling mendukung dalam rumah tangga berarti kita selalu ada untuk membantu, baik dalam urusan sehari-hari maupun saat menghadapi masalah. Saya ingin memastikan kita tumbuh bersama dan saling menguatkan, terutama di saat-saat sulit.',
+  second:
+    'Komunikasi yang jujur dan terbuka sangat penting. Dengan berbicara dan mendengarkan satu sama lain tanpa asumsi, kita bisa menghindari banyak kesalahpahaman. Saya ingin menjaga suasana yang nyaman agar kita berdua merasa bebas untuk berbagi pikiran.',
+  third:
+    'Menjaga hubungan baik dengan keluarga besar adalah bentuk rasa hormat dan dukungan. Saya akan berusaha melibatkan mereka dengan sewajarnya tanpa melupakan batasan dan privasi rumah tangga kita.',
+})
+
+const userQuestion = Object.freeze({
+  first:
+    'Apa yang paling kamu harapkan dari pasangan dalam perjalanan rumah tangga, dan bagaimana kita bisa bekerja sama untuk mewujudkan harapan tersebut?',
+  second:
+    'Dalam menghadapi tantangan hidup, apakah ada cara khusus yang kamu nilai penting untuk menjaga keharmonisan rumah tangga kita?',
+  third:
+    'Bagaimana kamu melihat peran keluarga besar dalam kehidupan pernikahan kita, dan sejauh mana kamu ingin melibatkan mereka dalam keseharian kita?',
+})
+const opponentAnswer = Object.freeze({
+  first:
+    'Harapan utama saya dari pasangan adalah adanya kebersamaan dan saling mendukung dalam segala kondisi. Bagi saya, penting untuk bisa menjadi teman dalam hal-hal kecil sehari-hari, sehingga kita selalu merasa punya tim dalam hidup.',
+  second:
+    'Saya percaya komunikasi adalah kunci utama dalam menjaga keharmonisan. Ketika ada tantangan atau perbedaan pendapat, saya berharap kita bisa membahasnya dengan tenang tanpa saling menyalahkan, serta saling menghargai setiap pandangan.',
+  third:
+    'Keluarga besar tentunya penting, namun saya berharap ada batasan yang jelas dalam urusan pribadi kita. Saya ingin mereka merasa dihormati, tetapi juga memberi kita ruang untuk menjalani kehidupan sesuai kesepakatan kita sendiri.',
+})
+
 const initialOpponent: SmallOpponent = {
   about:
     'Saya berasal dari keluarga menengah yang sederhana. Memiliki keinginan untuk terus belajar dan memperbaiki diri. Insyaallah pribadi yang sabar dan berusaha menjadi orang yang baik. Mengharapkan pasangan yang bisa diajak tumbuh bersama dan saling menerima kelebihan serta kekurangan masing-masing.',
@@ -14,12 +45,16 @@ const initialOpponent: SmallOpponent = {
   image: 'https://picsum.photos/id/238/200/300',
   job: 'Guru Sekolah Dasar (SD)',
   name: 'Jane Doe',
-  question1:
-    'Apa visi dan tujuan utama Anda dalam berumah tangga, dan bagaimana Anda melihat peran masing-masing dalam mencapai tujuan tersebut?',
-  question2:
-    'Bagaimana pandangan Anda mengenai pengelolaan keuangan dalam keluarga dan tanggung jawab ekonomi dari masing-masing pihak?',
-  question3:
-    'Bagaimana Anda memprioritaskan keluarga besar dalam kehidupan pernikahan, dan sejauh mana keterlibatan mereka dalam urusan keluarga inti kita nanti?',
+  answer: {
+    first: opponentAnswer.first,
+    second: opponentAnswer.second,
+    third: opponentAnswer.third,
+  },
+  question: {
+    first: opponentQuestion.first,
+    second: opponentQuestion.second,
+    third: opponentQuestion.third,
+  },
   status: 'Lajang',
   superiority: 'Jujur, Sabar, Cepat Paham',
   vision:
@@ -42,12 +77,16 @@ const initialUser: SmallOpponent = {
   image: 'https://picsum.photos/id/12/200/300',
   job: 'Pemadam Kebakaran (Damkar)',
   name: 'John Doe',
-  question1:
-    'Apa saja nilai utama yang ingin kamu bangun bersama dalam keluarga kita nantinya, dan bagaimana cara kita bisa menjaga keseimbangan peran di rumah tangga?',
-  question2:
-    'Bagaimana pandanganmu tentang prioritas karir dan keluarga dalam kehidupan berumah tangga?',
-  question3:
-    'Menurut kamu, apa arti menjadi seorang istri yang baik, dan bagaimana kita bisa saling mendukung peran masing-masing dalam keluarga?',
+  answer: {
+    first: userAnswer.first,
+    second: userAnswer.second,
+    third: userAnswer.third,
+  },
+  question: {
+    first: userQuestion.first,
+    second: userQuestion.second,
+    third: userQuestion.third,
+  },
   status: 'Lajang',
   superiority: 'Tegas, Mudah Beradaptasi, Rajin',
   vision:
@@ -76,4 +115,14 @@ const getRandomCode = () => {
   return `${result}${getRandomNumber(1000)}`
 }
 
-export { getRandomCode, getRandomImage, getRandomNumber, initialOpponent, initialUser }
+export {
+  getRandomCode,
+  getRandomImage,
+  getRandomNumber,
+  initialOpponent,
+  initialUser,
+  opponentAnswer,
+  opponentQuestion,
+  userAnswer,
+  userQuestion,
+}

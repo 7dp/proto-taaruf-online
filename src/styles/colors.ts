@@ -14,6 +14,7 @@ const Colors = {
   cultured: '#f8f8f8',
   transparent: 'rgba(255, 255, 255, 0)',
   white: '#ffffff',
+  dodgerBlue: '#1e90ff',
 } as const
 
 export { Colors }

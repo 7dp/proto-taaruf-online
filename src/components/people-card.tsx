@@ -10,15 +10,17 @@ const height = Math.round((width / 3) * 4)
 
 type Props = {
   item: SmallOpponent
+  openedFrom?: 'sent' | 'received'
 }
 
 function PeopleCard(props: Props) {
-  const { image, code, age, city } = props.item
+  const { item, openedFrom } = props
+  const { image, code, age, city } = item
 
   const navigation = useNavigation()
 
   const onPress = () => {
-    navigation.navigate('Cv', { opponent: props.item })
+    navigation.navigate('Cv', { opponent: props.item, openedFrom })
   }
 
   return (
