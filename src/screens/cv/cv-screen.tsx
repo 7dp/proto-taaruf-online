@@ -1,7 +1,7 @@
 import { Button, KeyValueText } from '@/components'
 import { usePaddingBottom } from '@/hooks'
 import { Colors, commonStyles, typography } from '@/styles'
-import { Screen, userAnswer } from '@/types'
+import { initialUser, Screen, userAnswer } from '@/types'
 import { Image } from 'expo-image'
 import React, { useEffect, useState } from 'react'
 import { Alert, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
@@ -13,6 +13,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
   const isOpenedFromReceived = openedFrom === 'received'
 
   const paddingBottom = usePaddingBottom()
+  const user = initialUser
 
   const [firstAnswer, setFirstAnswer] = useState(isOpenedFromSent ? userAnswer.first : '')
   const [secondAnswer, setSecondAnswer] = useState(isOpenedFromSent ? userAnswer.second : '')
@@ -20,23 +21,78 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
 
   useEffect(() => {
     navigation.setOptions({
-      headerBackTitle: isOpenedFromSent ? 'Terkirim' : isOpenedFromReceived ? 'Diterima' : 'Back',
+      headerBackTitle: isOpenedFromSent ? 'Terkirim' : isOpenedFromReceived ? 'Masuk' : 'Back',
     })
   }, [isOpenedFromReceived, isOpenedFromSent, navigation])
 
-  const renderQuestion = () => {
-    if (openedFrom === 'sent') {
+  const renderAnswer = () => {
+    if (isOpenedFromReceived) {
       return (
         <>
           <Text style={[typography.heading3, typography.semibold]}>
-            Pertanyaan Calon untuk Kamu Jawab
+            Jawaban Calon atas Pertanyaanmu
+          </Text>
+          <KeyValueText title="Pertanyaan 1" value={user.question.first} />
+          <View style={commonStyles.smallGap}>
+            <Text style={[typography.heading4, typography.description]}>Jawaban Calon</Text>
+            <TextInput
+              cursorColor={Colors.dodgerBlue}
+              editable={false}
+              multiline
+              numberOfLines={4}
+              selectionColor={Colors.dodgerBlue}
+              returnKeyType="default"
+              style={commonStyles.multilineInput}
+              value={opponent.answer.first}
+            />
+          </View>
+          <KeyValueText title="Pertanyaan 2" value={user.question.second} />
+          <View style={commonStyles.smallGap}>
+            <Text style={[typography.heading4, typography.description]}>Jawaban Calon</Text>
+            <TextInput
+              cursorColor={Colors.dodgerBlue}
+              editable={false}
+              multiline
+              numberOfLines={4}
+              selectionColor={Colors.dodgerBlue}
+              returnKeyType="default"
+              style={commonStyles.multilineInput}
+              value={opponent.answer.second}
+            />
+          </View>
+          <KeyValueText title="Pertanyaan 3" value={user.question.third} />
+          <View style={commonStyles.smallGap}>
+            <Text style={[typography.heading4, typography.description]}>Jawaban Calon</Text>
+            <TextInput
+              cursorColor={Colors.dodgerBlue}
+              editable={false}
+              multiline
+              numberOfLines={4}
+              selectionColor={Colors.dodgerBlue}
+              returnKeyType="default"
+              style={commonStyles.multilineInput}
+              value={opponent.answer.third}
+            />
+          </View>
+        </>
+      )
+    }
+    return null
+  }
+
+  const renderQuestion = () => {
+    if (isOpenedFromSent) {
+      return (
+        <>
+          <Text style={[typography.heading3, typography.semibold]}>
+            Jawabanmu atas Pertanyaan Calon
           </Text>
           <KeyValueText title="Pertanyaan 1" value={opponent.question.first} />
           <View style={commonStyles.smallGap}>
             <Text style={[typography.heading4, typography.description]}>Jawaban Kamu</Text>
             <TextInput
               cursorColor={Colors.dodgerBlue}
-              editable={!isOpenedFromSent}
+              editable={false}
               multiline
               numberOfLines={4}
               placeholder="Ketik jawabanmu"
@@ -53,7 +109,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
             <Text style={[typography.heading4, typography.description]}>Jawaban Kamu</Text>
             <TextInput
               cursorColor={Colors.dodgerBlue}
-              editable={!isOpenedFromSent}
+              editable={false}
               multiline
               numberOfLines={4}
               placeholder="Ketik jawabanmu"
@@ -70,7 +126,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
             <Text style={[typography.heading4, typography.description]}>Jawaban Kamu</Text>
             <TextInput
               cursorColor={Colors.dodgerBlue}
-              editable={!isOpenedFromSent}
+              editable={false}
               multiline
               numberOfLines={4}
               placeholder="Ketik jawabanmu"
@@ -88,7 +144,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
     return (
       <>
         <Text style={[typography.heading3, typography.semibold]}>
-          Pertanyaan Calon untuk Kamu Jawab
+          Silakan Jawab Pertanyaan Calon
         </Text>
         <KeyValueText title="Pertanyaan 1" value={opponent.question.first} />
         <View style={commonStyles.smallGap}>
@@ -142,6 +198,62 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
     )
   }
 
+  const renderMainButton = () => {
+    if (isOpenedFromSent) return null
+
+    if (isOpenedFromReceived) {
+      const approveCv = () => {
+        if (!firstAnswer.trim() || !secondAnswer.trim() || !thirdAnswer.trim()) {
+          Alert.alert('Semua pertanyaan calon harus kamu jawab')
+          return
+        }
+        Alert.alert(
+          `Berhasil menerima CV dari ${opponent.code}!`,
+          'Tahap selanjutnya adalah nadzor',
+          [
+            {
+              text: 'OK',
+              onPress: () => {
+                navigation.pop()
+              },
+            },
+          ]
+        )
+      }
+
+      return (
+        <View style={[commonStyles.containerBottomButton, paddingBottom]}>
+          <Button text="Terima CV" props={{ onPress: approveCv }} />
+        </View>
+      )
+    }
+
+    const sendCv = () => {
+      if (!firstAnswer.trim() || !secondAnswer.trim() || !thirdAnswer.trim()) {
+        Alert.alert('Semua pertanyaan calon harus kamu jawab')
+        return
+      }
+      Alert.alert(
+        `Berhasil mengajukan CV ke ${opponent.code}`,
+        'Riwayat pengajuanmu dapat dilihat di menu Terkirim',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigation.pop()
+            },
+          },
+        ]
+      )
+    }
+
+    return (
+      <View style={[commonStyles.containerBottomButton, paddingBottom]}>
+        <Button text="Ajukan CV" props={{ onPress: sendCv }} />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView edges={['left', 'right']} style={commonStyles.flex}>
       <ScrollView contentContainerStyle={[commonStyles.flexGrow, commonStyles.pagePadding]}>
@@ -167,30 +279,11 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
             <KeyValueText title="Visi Nikah" value={opponent.vision} />
             <KeyValueText title="Kriteria Pasangan" value={opponent.criteria} />
           </View>
+          {isOpenedFromReceived && <View style={style.card}>{renderAnswer()}</View>}
           <View style={style.card}>{renderQuestion()}</View>
         </View>
       </ScrollView>
-      <View style={[commonStyles.containerBottomButton, paddingBottom]}>
-        <Button
-          text="Ajukan CV"
-          props={{
-            onPress: () => {
-              if (!firstAnswer.trim() || !secondAnswer.trim() || !thirdAnswer.trim()) {
-                Alert.alert('Semua pertanyaan calon harus kamu jawab')
-                return
-              }
-              Alert.alert('Berhasil mengajukan CV', '', [
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    navigation.pop()
-                  },
-                },
-              ])
-            },
-          }}
-        />
-      </View>
+      {renderMainButton()}
     </SafeAreaView>
   )
 }

@@ -31,7 +31,7 @@ const BottomBarScreen: Screen<'BottomBar'> = () => {
         name="received"
         component={ReceivedScreen}
         options={{
-          title: 'Diterima',
+          title: 'Masuk',
           tabBarIcon: () => ({ sfSymbol: 'tray.full' }),
         }}
       />
