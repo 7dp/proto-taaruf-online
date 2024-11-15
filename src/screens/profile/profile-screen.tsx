@@ -39,9 +39,9 @@ const ProfileScreen = () => {
           </View>
           <View style={style.card}>
             <Text style={[typography.heading3, typography.semibold]}>Pertanyaan Untuk Calon</Text>
-            <KeyValueText title="Pertanyaan 1" value={user.question1} />
-            <KeyValueText title="Pertanyaan 2" value={user.question2} />
-            <KeyValueText title="Pertanyaan 3" value={user.question3} />
+            <KeyValueText title="Pertanyaan 1" value={user.question.first} />
+            <KeyValueText title="Pertanyaan 2" value={user.question.second} />
+            <KeyValueText title="Pertanyaan 3" value={user.question.third} />
           </View>
         </View>
       </ScrollView>
