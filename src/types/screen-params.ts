@@ -3,6 +3,8 @@ import { FC } from 'react'
 import { SmallOpponent } from './shared-types'
 
 type ScreenParams = {
+  Login: undefined
+  CreateCv: undefined
   BottomBar: undefined
   Cv: { opponent: SmallOpponent; openedFrom?: 'sent' | 'received' }
   Match: { opponent: SmallOpponent }

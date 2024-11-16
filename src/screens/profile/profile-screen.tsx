@@ -1,14 +1,14 @@
 import { Button, KeyValueText } from '@/components'
 import { useNavigation, usePaddingBottom } from '@/hooks'
 import { Colors, commonStyles, typography } from '@/styles'
-import { initialUser, Screen } from '@/types'
+import { initialUser } from '@/types'
 import { CommonActions } from '@react-navigation/native'
 import { Image } from 'expo-image'
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const ProfileScreen: Screen<'BottomBar'> = ({}) => {
+const ProfileScreen = () => {
   const user = initialUser
   const navigation = useNavigation()
   const paddingBottom = usePaddingBottom()
@@ -30,6 +30,7 @@ const ProfileScreen: Screen<'BottomBar'> = ({}) => {
           <View style={style.card}>
             <KeyValueText title="Status" value={user.status} />
             <KeyValueText title="Kota Domisili" value={user.city} />
+            <KeyValueText title="Alamat Domisili" value={user.address} />
             <KeyValueText title="Pekerjaan" value={user.job} />
             <KeyValueText title="Tentang Saya" value={user.about} />
             <KeyValueText
@@ -50,8 +51,7 @@ const ProfileScreen: Screen<'BottomBar'> = ({}) => {
           <Button
             text="Log Out"
             type="text"
-            textProps={{
-              style: typography.error,
+            props={{
               onPress: () => {
                 navigation.dispatch(
                   CommonActions.reset({
@@ -61,6 +61,7 @@ const ProfileScreen: Screen<'BottomBar'> = ({}) => {
                 )
               },
             }}
+            textProps={{ style: typography.error }}
           />
           <View />
           <View />

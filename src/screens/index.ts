@@ -1,4 +1,6 @@
 export * from './bottom-bar'
+export * from './create-cv'
 export * from './cv'
+export * from './login'
 export * from './match'
 export * from './nadzor'

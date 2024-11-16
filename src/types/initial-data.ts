@@ -102,6 +102,8 @@ const strings = {
     'Setelah nadzor yang ditemani mitra selesai dilaksanakan, silakan buat keputusan. Jika merasa cocok dengan calon kamu dapat menyetujui untuk melanjutkan ke tahap akhir yakni khitbah/lamaran.',
   khitbahInfo:
     'Taaruf Online hanya dapat membantu sampai di sini saja, kami ucapkan selamat kamu mendapatkan calon pasangan dengan cara yang halal!',
+  createCvInfo:
+    'Dengan membuat CV berarti kamu menyetujui syarat dan ketentuan (S&K) yang diterapkan oleh aplikasi Taaruf Online',
 }
 
 const getRandomNumber = (range: number) => {

@@ -1393,6 +1393,11 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.1.1.tgz#1ec17e2edbec25c8306d424ecfbf13c7de1aaa31"
   integrity sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==
 
+"@react-native-segmented-control/segmented-control@^2.5.6":
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/@react-native-segmented-control/segmented-control/-/segmented-control-2.5.6.tgz#5548d328b7a3459948d443e267e3ac85fc7b3c27"
+  integrity sha512-3Dtp0LodmmhkLvTRbnsaEBHe3AlJFUJ5K2GEnaZL9YqoeQYlGfGCbI1SOIUsZDnHBZqAlF7sBK6zm+JfNvMN8g==
+
 "@react-native/assets-registry@0.76.1":
   version "0.76.1"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.76.1.tgz#eadf31b3fa05139516dc405a8355dc4ecd0d5de7"

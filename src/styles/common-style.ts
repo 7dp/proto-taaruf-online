@@ -25,7 +25,7 @@ const commonStyles = StyleSheet.create({
   } as ViewStyle,
 
   borderLine: {
-    borderColor: Colors.black10,
+    borderColor: Colors.black18,
     borderWidth: StyleSheet.hairlineWidth,
   } as ViewStyle,
 
@@ -136,6 +136,20 @@ const commonStyles = StyleSheet.create({
 
   smallGap: {
     gap: 8,
+  },
+
+  textInput: {
+    borderColor: Colors.black65,
+    borderRadius: 6,
+    borderWidth: StyleSheet.hairlineWidth,
+    height: 48,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
+
+  wh100Percent: {
+    height: '100%',
+    width: '100%',
   },
 })
 

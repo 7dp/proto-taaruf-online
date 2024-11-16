@@ -2,7 +2,14 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
 
-import { BottomBarScreen, CvScreen, MatchScreen, NadzorScreen } from '@/screens'
+import {
+  BottomBarScreen,
+  CreateCvScreen,
+  CvScreen,
+  LoginScreen,
+  MatchScreen,
+  NadzorScreen,
+} from '@/screens'
 import { KhitbahScreen } from '@/screens/khitbah'
 import { ScreenParams } from '@/types'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -19,7 +26,17 @@ export default function App() {
             onStateChange={(state) => {
               console.log('CURRENT SCREEN:', state?.routes[state.index].name)
             }}>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName="Login">
+              <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+                options={{ headerTitle: 'Log In' }}
+              />
+              <Stack.Screen
+                name="CreateCv"
+                component={CreateCvScreen}
+                options={{ headerTitle: 'Buat CV' }}
+              />
               <Stack.Screen
                 name="BottomBar"
                 component={BottomBarScreen}
