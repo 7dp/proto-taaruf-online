@@ -214,7 +214,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
             {
               text: 'OK',
               onPress: () => {
-                navigation.pop()
+                navigation.navigate('Match', { opponent })
               },
             },
           ]
@@ -259,7 +259,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={[commonStyles.flexGrow, commonStyles.pagePadding]}>
         <View style={style.container}>
           <View style={[commonStyles.columnCenterH, commonStyles.gap]}>
-            <Image source={opponent.image} style={style.image} />
+            <Image blurRadius={25} source={opponent.image} style={style.image} />
             <View>
               <Text style={[typography.heading2, typography.semibold]}>{opponent.code}</Text>
               <Text style={typography.heading4}>{opponent.age} tahun</Text>

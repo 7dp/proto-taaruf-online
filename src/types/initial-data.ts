@@ -2,16 +2,16 @@ import { SmallOpponent } from './shared-types'
 
 const opponentQuestion = Object.freeze({
   first: 'Seperti apa pandanganmu tentang peran saling mendukung dalam rumah tangga?',
-  second: 'Bagaimana kamu melihat peran komunikasi dalam menyelesaikan masalah keluarga?',
-  third: 'Seberapa penting menurutmu menjaga hubungan baik dengan keluarga besar?',
+  second: 'Bagaimana pandangan Anda perihal poligami?',
+  third: 'Bersediakah untuk membantu pekerjaan rumah jika diperlukan?',
 })
 const userAnswer = Object.freeze({
   first:
     'Menurut saya, saling mendukung dalam rumah tangga berarti kita selalu ada untuk membantu, baik dalam urusan sehari-hari maupun saat menghadapi masalah. Saya ingin memastikan kita tumbuh bersama dan saling menguatkan, terutama di saat-saat sulit.',
   second:
-    'Komunikasi yang jujur dan terbuka sangat penting. Dengan berbicara dan mendengarkan satu sama lain tanpa asumsi, kita bisa menghindari banyak kesalahpahaman. Saya ingin menjaga suasana yang nyaman agar kita berdua merasa bebas untuk berbagi pikiran.',
+    'Bagi saya, pernikahan adalah tentang komitmen yang mendalam antara dua orang. Saya lebih memilih fokus untuk membangun hubungan yang kuat dan saling melengkapi dengan satu pasangan saja. Poligami bukan sesuatu yang saya pertimbangkan.',
   third:
-    'Menjaga hubungan baik dengan keluarga besar adalah bentuk rasa hormat dan dukungan. Saya akan berusaha melibatkan mereka dengan sewajarnya tanpa melupakan batasan dan privasi rumah tangga kita.',
+    'Tentu saja. Saya melihat pekerjaan rumah tangga sebagai tanggung jawab bersama, bukan hanya tugas satu pihak. Karena saya ingin rumah tangga kita terasa adil dan nyaman untuk keduanya',
 })
 
 const userQuestion = Object.freeze({
@@ -95,6 +95,15 @@ const initialUser: SmallOpponent = {
   weight: 72,
 }
 
+const strings = {
+  hintWaMatch:
+    'Silakan WA admin sebelum melakukan tolak/setuju nadzor. WA admin bertujuan untuk proses tanya/jawab dengan calon dengan diperantarai admin. Setelah tanya/jawab di rasa cukup silakan buat keputusan untuk tolak/setuju ke tahap nadzor.',
+  hintNadzor:
+    'Setelah nadzor yang ditemani mitra selesai dilaksanakan, silakan buat keputusan. Jika merasa cocok dengan calon kamu dapat menyetujui untuk melanjutkan ke tahap akhir yakni khitbah/lamaran.',
+  khitbahInfo:
+    'Taaruf Online hanya dapat membantu sampai di sini saja, kami ucapkan selamat kamu mendapatkan calon pasangan dengan cara yang halal!',
+}
+
 const getRandomNumber = (range: number) => {
   return Math.floor(Math.random() * range)
 }
@@ -123,6 +132,7 @@ export {
   initialUser,
   opponentAnswer,
   opponentQuestion,
+  strings,
   userAnswer,
   userQuestion,
 }

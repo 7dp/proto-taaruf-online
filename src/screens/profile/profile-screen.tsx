@@ -1,19 +1,23 @@
-import { KeyValueText } from '@/components'
+import { Button, KeyValueText } from '@/components'
+import { useNavigation, usePaddingBottom } from '@/hooks'
 import { Colors, commonStyles, typography } from '@/styles'
-import { initialUser } from '@/types'
+import { initialUser, Screen } from '@/types'
+import { CommonActions } from '@react-navigation/native'
 import { Image } from 'expo-image'
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const ProfileScreen = () => {
+const ProfileScreen: Screen<'BottomBar'> = ({}) => {
   const user = initialUser
+  const navigation = useNavigation()
+  const paddingBottom = usePaddingBottom()
 
   return (
     <SafeAreaView
       edges={['left', 'right', 'bottom']}
       style={[commonStyles.background, commonStyles.flex]}>
-      <ScrollView contentContainerStyle={style.scrollView}>
+      <ScrollView contentContainerStyle={[style.scrollView, paddingBottom]}>
         <View style={style.container}>
           <View style={[commonStyles.columnCenterH, commonStyles.gap]}>
             <Image source={user.image} style={style.image} />
@@ -43,6 +47,24 @@ const ProfileScreen = () => {
             <KeyValueText title="Pertanyaan 2" value={user.question.second} />
             <KeyValueText title="Pertanyaan 3" value={user.question.third} />
           </View>
+          <Button
+            text="Log Out"
+            type="text"
+            textProps={{
+              style: typography.error,
+              onPress: () => {
+                navigation.dispatch(
+                  CommonActions.reset({
+                    routes: [{ name: 'Login' }],
+                    index: 0,
+                  })
+                )
+              },
+            }}
+          />
+          <View />
+          <View />
+          <View />
         </View>
       </ScrollView>
     </SafeAreaView>

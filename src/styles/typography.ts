@@ -7,6 +7,14 @@ const getLineHeightFor = (fontSize: number) => {
 }
 
 const typography = StyleSheet.create({
+  alignCenterH: {
+    textAlign: 'center',
+  },
+
+  blue: {
+    color: Colors.dodgerBlue,
+  },
+
   bold: {
     fontWeight: '700',
   },
