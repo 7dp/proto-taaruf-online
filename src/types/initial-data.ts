@@ -42,7 +42,7 @@ const initialOpponent: SmallOpponent = {
     'Saya mencari pasangan yang sederhana namun memiliki pemahaman agama yang baik, dan mampu bersikap fleksibel dalam keseharian. Seseorang yang tetap bisa membimbing dalam suka dan duka, baik dari sisi ekonomi maupun dukungan keluarga, serta memiliki rasa hormat terhadap orang tua dan lingkungan sekitar.',
   gender: 'Wanita',
   height: 165,
-  image: 'https://picsum.photos/id/238/200/300',
+  image: 'https://utfs.io/f/syGVKQkNn7Q3IRaVmK4Bm9L6kSuWzZhGRNpFfYVoMaetj47K',
   job: 'Guru Sekolah Dasar (SD)',
   name: 'Jane Doe',
   answer: {
@@ -74,7 +74,7 @@ const initialUser: SmallOpponent = {
     'Saya mencari pasangan yang tulus dan memiliki nilai-nilai keagamaan yang baik, namun tetap terbuka dan fleksibel dalam menjalani kehidupan sehari-hari. Seseorang yang mampu berjuang bersama dalam menghadapi tantangan hidup, termasuk dalam hal ekonomi dan keluarga besar, serta memiliki rasa hormat kepada orang tua.',
   gender: 'Pria',
   height: 178,
-  image: 'https://picsum.photos/id/12/200/300',
+  image: 'https://ozgrozer.github.io/100k-faces/0/9/009228.jpg',
   job: 'Pemadam Kebakaran (Damkar)',
   name: 'John Doe',
   answer: {
@@ -111,9 +111,9 @@ const getRandomNumber = (range: number) => {
 }
 
 const getRandomImage = (imageUrl: string) => {
-  const id = Math.floor(Math.random() * 300)
-  const newUrl = imageUrl.replace(/\/id\/\d+\//, `/id/${id}/`)
-  return newUrl
+  // const id = Math.floor(Math.random() * 300)
+  // const newUrl = imageUrl.replace(/\/id\/\d+\//, `/id/${id}/`)
+  return imageUrl
 }
 
 const getRandomCode = () => {

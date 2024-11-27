@@ -25,7 +25,7 @@ function PeopleCard(props: Props) {
 
   return (
     <TouchableOpacity style={style.root} onPress={onPress}>
-      <Image source={image} style={style.image} />
+      <Image blurRadius={70} source={image} style={style.image} />
       {/* Layer above image */}
       <View style={style.layerAbove}>
         <View style={style.expander}>

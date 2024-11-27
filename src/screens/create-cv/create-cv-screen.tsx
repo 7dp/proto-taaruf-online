@@ -1,7 +1,7 @@
 import { Button } from '@/components'
 import { usePaddingBottom } from '@/hooks'
 import { Colors, commonStyles, typography } from '@/styles'
-import { Screen, strings } from '@/types'
+import { initialUser, Screen, strings } from '@/types'
 import SegmentedControl from '@react-native-segmented-control/segmented-control'
 import { CommonActions } from '@react-navigation/native'
 import { Image } from 'expo-image'
@@ -22,24 +22,24 @@ const CreateCvScreen: Screen<'CreateCv'> = ({ navigation }) => {
 
   const [genderIndex, setGenderIndex] = useState(0)
   const [statusIndex, setStatusIndex] = useState(0)
-  const [name, setName] = useState('Wicak Radityo')
+  const [name, setName] = useState(initialUser.name)
   const [phone, setPhone] = useState('081327552848')
-  const [photo, setPhoto] = useState('')
-  const [age, setAge] = useState('')
-  const [job, setJob] = useState('')
-  const [city, setCity] = useState('')
-  const [address, setAddress] = useState('')
-  const [height, setHeight] = useState('')
-  const [weight, setWeight] = useState('')
-  const [aboutMe, setAboutMe] = useState('')
-  const [superiority, setSuperiority] = useState('')
-  const [weakness, setWeakness] = useState('')
-  const [vision, setVision] = useState('')
-  const [criteria, setCriteria] = useState('')
+  const [photo, setPhoto] = useState(initialUser.image)
+  const [age, setAge] = useState(initialUser.age.toString())
+  const [job, setJob] = useState(initialUser.job)
+  const [city, setCity] = useState(initialUser.city)
+  const [address, setAddress] = useState(initialUser.address)
+  const [height, setHeight] = useState(initialUser.height.toString())
+  const [weight, setWeight] = useState(initialUser.weight.toString())
+  const [aboutMe, setAboutMe] = useState(initialUser.about)
+  const [superiority, setSuperiority] = useState(initialUser.superiority)
+  const [weakness, setWeakness] = useState(initialUser.weakness)
+  const [vision, setVision] = useState(initialUser.vision)
+  const [criteria, setCriteria] = useState(initialUser.criteria)
   const [password, setPassword] = useState('password1234')
-  const [question1, setQuestion1] = useState('')
-  const [question2, setQuestion2] = useState('')
-  const [question3, setQuestion3] = useState('')
+  const [question1, setQuestion1] = useState(initialUser.question.first)
+  const [question2, setQuestion2] = useState(initialUser.question.second)
+  const [question3, setQuestion3] = useState(initialUser.question.third)
 
   return (
     <SafeAreaView edges={['left', 'right']} style={[commonStyles.background, commonStyles.flex]}>
@@ -99,7 +99,7 @@ const CreateCvScreen: Screen<'CreateCv'> = ({ navigation }) => {
             <TouchableOpacity
               style={style.imageButton}
               onPress={() => {
-                setPhoto('https://picsum.photos/id/12/500/200')
+                setPhoto('https://ozgrozer.github.io/100k-faces/0/9/009228.jpg')
               }}>
               {photo ? (
                 <Image source={photo} style={commonStyles.wh100Percent} />

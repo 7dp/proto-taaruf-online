@@ -15,9 +15,9 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
   const paddingBottom = usePaddingBottom()
   const user = initialUser
 
-  const [firstAnswer, setFirstAnswer] = useState(isOpenedFromSent ? userAnswer.first : '')
-  const [secondAnswer, setSecondAnswer] = useState(isOpenedFromSent ? userAnswer.second : '')
-  const [thirdAnswer, setThirdAnswer] = useState(isOpenedFromSent ? userAnswer.third : '')
+  const [firstAnswer, setFirstAnswer] = useState<string>(userAnswer.first)
+  const [secondAnswer, setSecondAnswer] = useState<string>(userAnswer.second)
+  const [thirdAnswer, setThirdAnswer] = useState<string>(userAnswer.third)
 
   useEffect(() => {
     navigation.setOptions({
@@ -209,7 +209,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
         }
         Alert.alert(
           `Berhasil menerima CV dari ${opponent.code}!`,
-          'Tahap selanjutnya adalah nadzor',
+          'Kamu dan calon masuk ke tahap match',
           [
             {
               text: 'OK',
@@ -222,8 +222,19 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
       }
 
       return (
-        <View style={[commonStyles.containerBottomButton, paddingBottom]}>
-          <Button text="Terima CV" props={{ onPress: approveCv }} />
+        <View
+          style={[
+            commonStyles.containerBottomButton,
+            commonStyles.gap,
+            commonStyles.rowCenterV,
+            paddingBottom,
+          ]}>
+          <Button
+            text="Tolak CV"
+            props={{ onPress: () => navigation.pop(), style: commonStyles.flex }}
+            type="outline"
+          />
+          <Button text="Terima CV" props={{ onPress: approveCv, style: commonStyles.flex }} />
         </View>
       )
     }
@@ -259,7 +270,7 @@ const CvScreen: Screen<'Cv'> = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={[commonStyles.flexGrow, commonStyles.pagePadding]}>
         <View style={style.container}>
           <View style={[commonStyles.columnCenterH, commonStyles.gap]}>
-            <Image blurRadius={25} source={opponent.image} style={style.image} />
+            <Image blurRadius={70} source={opponent.image} style={style.image} />
             <View>
               <Text style={[typography.heading2, typography.semibold]}>{opponent.code}</Text>
               <Text style={typography.heading4}>{opponent.age} tahun</Text>
